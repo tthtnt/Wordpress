@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 ?>
 
-<?php wc_print_notices(); ?>
+    <?php wc_print_notices(); ?>
 
 <?php do_action( 'woocommerce_before_customer_login_form' ); ?>
 
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="u-column2 col-2">
 
 		<h2><?php esc_html_e( 'Register', 'woocommerce' ); ?></h2>
-
+<!--        <form name="checkout" method="post" class="checkout woocommerce-checkout" action="--><?php //echo esc_url( wc_get_checkout_url() ); ?><!--" enctype="multipart/form-data">-->
 		<form method="post" class="register">
 
 			<?php do_action( 'woocommerce_register_form_start' ); ?>
@@ -100,8 +100,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 				</p>
 
 			<?php endif; ?>
+<!--            <span class="required">*</span>-->
+<!--            <p class="form-row form-row-wide">-->
+<!--                <label for="reg_first_name">--><?php //_e( 'First Name', 'woocommerce' ); ?><!-- </label>-->
+<!--                <input type="text" class="input-text"  name="first_name" id="reg_first_name" value="--><?php //if ( ! empty( $_POST['first_name'] ) ) echo esc_attr( $_POST['first_name'] ); ?><!--" />-->
+<!--            </p>-->
+            <?php
+            $address = WC()->countries->get_address_fields('','billing_');
+            foreach ( $address as $key => $field ) {
+                if ( isset( $field['country_field'], $address[ $field['country_field'] ] ) ) {
+                    $field['country'] = wc_get_post_data_by_key( $field['country_field'], '' );
+                }
+                woocommerce_form_field( $key, $field, wc_get_post_data_by_key( $key, '') );
+            }
+            ?>
+			<?php
+//            $instance = new WC_Checkout();
+//            $instance = $instance::instance();
+            ?>
+<!--            <div class="woocommerce-address-fields__field-wrapper">-->
+<!--                --><?php
+//                foreach ( $address as $key => $field ) {
+//                    if ( isset( $field['country_field'], $address[ $field['country_field'] ] ) ) {
+//                        $field['country'] = wc_get_post_data_by_key( $field['country_field'], $address[ $field['country_field'] ]['value'] );
+//                    }
+//                    woocommerce_form_field( $key, $field, wc_get_post_data_by_key( $key, $field['value'] ) );
+//                }
+//                ?>
+<!--            </div>-->
 
-			<?php do_action( 'woocommerce_register_form' ); ?>
+<!--            <div class="woocommerce-billing-fields__field-wrapper">-->
+<!--                --><?php
+//                $fields = $instance->get_checkout_fields( 'billing' );
+//
+//                foreach ( $fields as $key => $field ) {
+//                    if ( isset( $field['country_field'], $fields[ $field['country_field'] ] ) ) {
+//                        $field['country'] = $instance->get_value( $field['country_field'] );
+//                    }
+//                    woocommerce_form_field( $key, $field, $instance->get_value( $key ) );
+//                }
+//                ?>
+<!--            </div>-->
+            <?php
+            $user = WC()->countries->get_address_fields( '', 'billing_' );
+//            do_action( 'woocommerce_checkout_billing',array( $instance, 'checkout_form_billing' ));
+            do_action( 'woocommerce_register_form' ); ?>
 
 			<p class="woocommerce-FormRow form-row">
 				<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>

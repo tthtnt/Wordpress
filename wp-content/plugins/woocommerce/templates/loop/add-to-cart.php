@@ -19,15 +19,60 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
+global $wp;
 global $product;
+?>
+<form class="cart" action="<?php echo esc_url( home_url(add_query_arg(array(),$wp->request)) ); ?>" method="post" enctype='multipart/form-data'>
+		<?php
+			/**
+			 * @since 2.1.0.
+			 */
+			do_action( 'woocommerce_before_add_to_cart_button' );
 
-echo apply_filters( 'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.
-	sprintf( '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',
-		esc_url( $product->add_to_cart_url() ),
-		esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),
-		esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),
-		isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',
-		esc_html( $product->add_to_cart_text() )
-	),
-$product, $args );
+			/**
+			 * @since 3.0.0.
+			 */
+			do_action( 'woocommerce_before_add_to_cart_quantity' );
+
+			woocommerce_quantity_input( array(
+				'min_value'   => apply_filters( 'woocommerce_quantity_input_min', 1, $product ),
+				'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+				'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( $_POST['quantity'] ) : $product->get_min_purchase_quantity(),
+			) );
+
+			/**
+			 * @since 3.0.0.
+			 */
+			do_action( 'woocommerce_after_add_to_cart_quantity' );
+		?>
+
+		<button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+
+		<?php
+			/**
+			 * @since 2.1.0.
+			 */
+			do_action( 'woocommerce_after_add_to_cart_button' );
+		?>
+	</form>
+<!--//do_action( 'woocommerce_before_add_to_cart_quantity' );-->
+<!--//-->
+<!--//woocommerce_quantity_input( array(-->
+<!--//    'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),-->
+<!--//    'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),-->
+<!--//    'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( $_POST['quantity'] ) : $product->get_min_purchase_quantity(),-->
+<!--//) );-->
+<!--//-->
+<!--///**-->
+<!--// * @since 3.0.0.-->
+<!--// */-->
+<!--//do_action( 'woocommerce_after_add_to_cart_quantity' );-->
+<!--//echo apply_filters( 'woocommerce_loop_add_to_cart_link', // WPCS: XSS ok.-->
+<!--//	sprintf( '<a href="%s" data-quantity="%s" class="%s" %s>%s</a>',-->
+<!--//		esc_url( $product->add_to_cart_url() ),-->
+<!--//		esc_attr( isset( $args['quantity'] ) ? $args['quantity'] : 1 ),-->
+<!--//		esc_attr( isset( $args['class'] ) ? $args['class'] : 'button' ),-->
+<!--//		isset( $args['attributes'] ) ? wc_implode_html_attributes( $args['attributes'] ) : '',-->
+<!--//		esc_html( $product->add_to_cart_text() )-->
+<!--//	),-->
+<!--//$product, $args );-->

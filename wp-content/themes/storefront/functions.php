@@ -67,3 +67,27 @@ if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin()
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
  * https://github.com/woocommerce/theme-customisations
  */
+
+add_action( 'user_register', 'pft_registration_save', 10, 1 );
+function pft_registration_save( $user_id ) {
+    if ( isset( $_POST['billing_first_name'] ) )
+        update_user_meta($user_id, 'billing_first_name', $_POST['billing_first_name']);
+    if ( isset( $_POST['billing_last_name'] ) )
+        update_user_meta($user_id, 'billing_last_name', $_POST['billing_last_name']);
+    if ( isset( $_POST['billing_country'] ) )
+        update_user_meta($user_id, 'billing_country', $_POST['billing_country']);
+    if ( isset( $_POST['billing_email'] ) )
+        update_user_meta($user_id, 'billing_email', $_POST['billing_email']);
+    if ( isset( $_POST['billing_company'] ) )
+        update_user_meta($user_id, 'billing_company', $_POST['billing_company']);
+    if ( isset( $_POST['billing_address_1'] ) )
+        update_user_meta($user_id, 'billing_address_1', $_POST['billing_address_1']);
+    if ( isset( $_POST['billing_city'] ) )
+        update_user_meta($user_id, 'billing_city', $_POST['billing_city']);
+    if ( isset( $_POST['billing_state'] ) )
+        update_user_meta($user_id, 'billing_state', $_POST['billing_state']);
+    if ( isset( $_POST['billing_postcode'] ) )
+        update_user_meta($user_id, 'billing_postcode', $_POST['billing_postcode']);
+    if ( isset( $_POST['billing_phone'] ) )
+        update_user_meta($user_id, 'billing_phone', $_POST['billing_phone']);
+}
