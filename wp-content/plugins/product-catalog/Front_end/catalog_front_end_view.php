@@ -1214,7 +1214,6 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
                     <div class="catalog_pagination_block_<?php echo $catalogID; ?>" >
                         <div class="catalog_pagination_<?php echo $catalogID; ?>" >
                             <?php
-                            /*
                             if (strpos($_SERVER['QUERY_STRING'], 'catalog_page_') !== false)
                             {                                                                   //      IF WE HAVE $_GET PAGE
                                 $oneMore = $page_index + 1;
@@ -1261,11 +1260,11 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
                                 . '<span class="disabled go-to-last-passive"></span>';
 
                             echo $prevlink." <span class='pagination-text'>".$page_index." / ".$pages."</span> ".$nextlink;
-*/
+
                             ?>
                             <input type="hidden" class="pagination-scroll-position" value=""/>
                         </div>
-                        <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
+
 
                     </div>
                     <?php
@@ -3765,8 +3764,34 @@ function front_end_catalog($images, $paramssld, $paramssld3, $catalog)
                                 . '<a href="'.$pathSumbol.$lastPagePath. '" class="go-to-last"><i class="icon-style4 hugeiticons-fast-forward" ></i></a>' :
                                 '<span class="disabled go-to-next-passive"></span>'
                                 . '<span class="disabled go-to-last-passive"></span>';
+                            
 
-                            echo $prevlink." <span class='pagination-text'>".$page_index." / ".$pages."</span> ".$nextlink;
+                            // echo $prevlink." <span class='pagination-text'>".$page_index." / ".$pages."</span> ".$nextlink;
+                            $Remaining_num = (int)($page_index/10);
+                           if($Remaining_num == 0){
+                            echo $prevlink;
+                            for($i = $Remaining_num*10+1; $i<=$pages&& $i <= ($Remaining_num+1)*10; $i++){
+                                if($i == $page_index){
+                                    echo '<a class="PageNavi current-link" href="'.$pathSumbol.'catalog_page_'.$catalogID.'='.$i.'">'.$i.'</a>';
+                                }else{
+                                    echo '<a class="PageNavi" href="'.$pathSumbol.'catalog_page_'.$catalogID.'='.$i.'">'.$i.'</a>';
+                                }
+                                
+                            }
+                            echo $nextlink;
+                           }else{
+                            echo $prevlink;
+                            for($i = $Remaining_num*10; $i<=$pages&& $i <= ($Remaining_num+1)*10; $i++){
+                                if($i == $page_index){
+                                    echo '<a class="PageNavi current-link" href="'.$pathSumbol.'catalog_page_'.$catalogID.'='.$i.'">'.$i.'</a>';
+                                }else{
+                                    echo '<a class="PageNavi" href="'.$pathSumbol.'catalog_page_'.$catalogID.'='.$i.'">'.$i.'</a>';
+                                }
+                                
+                            }
+                            echo $nextlink;
+                           }
+                            
 
                             ?>
                         </div>

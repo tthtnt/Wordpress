@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e3caf44-7efa-413b-8a29-31270ea732b9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/loop/add-to-cart.php" afterPath="$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/loop/add-to-cart.php" />
-      <change beforePath="$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/myaccount/form-login.php" afterPath="$PROJECT_DIR$/wp-content/plugins/woocommerce/templates/myaccount/form-login.php" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/storefront/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/storefront/functions.php" />
+      <change beforePath="$PROJECT_DIR$/wp-content/plugins/product-catalog/Front_end/catalog_front_end_view.php" afterPath="$PROJECT_DIR$/wp-content/plugins/product-catalog/Front_end/catalog_front_end_view.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,12 +29,12 @@
       <file leaf-file-name="catalog_front_end_view.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/plugins/product-catalog/Front_end/catalog_front_end_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="1267" column="24" lean-forward="true" selection-start-line="1267" selection-start-column="24" selection-end-line="1267" selection-end-column="86" />
+            <state relative-caret-position="580">
+              <caret line="1268" column="0" lean-forward="true" selection-start-line="1268" selection-start-column="0" selection-end-line="1268" selection-end-column="0" />
               <folding>
-                <marker date="1523845586038" expanded="true" signature="298756:298806" ph="..." />
-                <marker date="1523845586038" expanded="true" signature="388068:388086" ph="..." />
-                <marker date="1523845586038" expanded="true" signature="422736:422754" ph="..." />
+                <marker date="1523845760332" expanded="true" signature="298670:298720" ph="..." />
+                <marker date="1523845760332" expanded="true" signature="387982:388000" ph="..." />
+                <marker date="1523845760332" expanded="true" signature="422650:422668" ph="..." />
               </folding>
             </state>
           </provider>
@@ -95,7 +92,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="586" />
     <option name="y" value="148" />
     <option name="width" value="1932" />
@@ -290,12 +287,12 @@
       <workItem from="1523842516608" duration="57000" />
       <workItem from="1523843153527" duration="1843000" />
       <workItem from="1523845282847" duration="33000" />
-      <workItem from="1523845361746" duration="192000" />
+      <workItem from="1523845361746" duration="357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45986000" />
+    <option name="totallyTimeSpent" value="46151000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -307,7 +304,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10501066" sideWeight="0.49438202" order="0" side_tool="false" content_ui="tabs" />
@@ -699,12 +696,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/plugins/product-catalog/Front_end/catalog_front_end_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="1267" column="24" lean-forward="true" selection-start-line="1267" selection-start-column="24" selection-end-line="1267" selection-end-column="86" />
+        <state relative-caret-position="580">
+          <caret line="1268" column="0" lean-forward="true" selection-start-line="1268" selection-start-column="0" selection-end-line="1268" selection-end-column="0" />
           <folding>
-            <marker date="1523845586038" expanded="true" signature="298756:298806" ph="..." />
-            <marker date="1523845586038" expanded="true" signature="388068:388086" ph="..." />
-            <marker date="1523845586038" expanded="true" signature="422736:422754" ph="..." />
+            <marker date="1523845760332" expanded="true" signature="298670:298720" ph="..." />
+            <marker date="1523845760332" expanded="true" signature="387982:388000" ph="..." />
+            <marker date="1523845760332" expanded="true" signature="422650:422668" ph="..." />
           </folding>
         </state>
       </provider>
